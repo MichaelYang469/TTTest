@@ -25,8 +25,8 @@ public class Drive {
 
     public void setPower(double p1, double p2, double p3, double p4) {
         //setting power
-        leftFront.setPower(p1);
-        leftBack.setPower(p2);
+        leftFront.setPower(p2);
+        leftBack.setPower(p1);
         rightFront.setPower(p3);
         rightBack.setPower(p4);
     }
@@ -34,10 +34,10 @@ public class Drive {
     public void setDrive(double x, double y, double rotation) {
         // Calculate power for each motor based on x, y, and rotation
         double leftFrontPower = y + x + rotation;
-        double leftBackPower = y - x + rotation;
+        double leftBackPower = y - x - rotation;
         double rightFrontPower = y - x - rotation;
         double rightBackPower = y + x - rotation;
-        double denom = Math.abs(x) + Math.abs(y) + Math.abs(rotation);
-        setPower(leftFrontPower/denom, leftBackPower/denom, rightFrontPower/denom, rightBackPower/denom);
+        double denom = Math.abs(x) + Math.abs(y) - Math.abs(rotation);
+        setPower(leftFrontPower/denom, leftBackPower, rightFrontPower/denom, rightBackPower/denom);
     }
 }

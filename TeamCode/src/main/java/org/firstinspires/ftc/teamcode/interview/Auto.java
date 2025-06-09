@@ -16,7 +16,7 @@ public class Auto extends LinearOpMode {
         waitForStart();
         while (opModeIsActive() && !isStopRequested()) {
             pathing.updatePosition();
-            pathing.moveTo(1000, 1000, 90);
+            pathing.moveTo(0, 0, 90);
             telemetry.addData("Position", pathing.position);
             telemetry.update();
         }
